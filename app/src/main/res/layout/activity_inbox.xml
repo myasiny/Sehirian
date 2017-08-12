@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android = "http://schemas.android.com/apk/res/android"
+    xmlns:tools = "http://schemas.android.com/tools"
+    tools:context = ".InboxActivity"
+    android:layout_width="match_parent"
+    android:layout_height = "match_parent" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height = "match_parent">
+
+        <ImageButton
+            android:id="@+id/back"
+            android:src="@drawable/icon_back"
+            android:background="@null"
+            android:layout_width="33dp"
+            android:layout_height="33dp"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp" />
+
+        <TextView
+            android:id = "@+id/page"
+            android:text = "@string/pg_inbox"
+            android:textSize = "20dp"
+            android:textColor="@color/colorAccent"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:layout_alignBottom="@+id/back"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp" />
+
+        <RelativeLayout
+            android:id="@+id/layout"
+            android:background="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height = "match_parent"
+            android:layout_below="@+id/back"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp">
+
+            <ProgressBar style="@style/Base.Widget.AppCompat.ProgressBar"
+                android:id="@+id/spinner"
+                android:visibility="visible"
+                android:indeterminate="true"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp" />
+        </RelativeLayout>
+    </RelativeLayout>
+</ScrollView>
