@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">Sehirian</string>
-    <string name="app_version">1.1</string>
+    <string name="app_version">1.2</string>
     <string name="app_creator">© M Yasin YILDIRIM</string>
 
     <string name="agree_title">Sehirian: Terms Of Use</string>
-    <string name="agree_body">Sehirian needs your Sehir Mail and password only for accessing and parsing your data in Istanbul Sehir University Learning Management System to bring it into your service. Apart from that; it does not use, store (unless you checked Remember Me) or share your information and LMS data at all.\n\nTherefore, Sehirian does not take any responsibility for mis-using of the information provided.\n\nPlease confirm that you understand the terms stated above and hereby consent to the use of your information for accessing your LMS data by using this application.</string>
+    <string name="agree_body">Sehirian needs your Sehir Mail and password only for accessing and parsing your data in Istanbul Sehir University Learning Management System to bring it into your service. Apart from that; it does not use, store (unless you checked Remember Me) or share your information and LMS data at all.\n\nTherefore, Sehirian does not take any responsibility for misusing of the information provided.\n\nPlease confirm that you understand the terms stated above and hereby consent to the use of your information for accessing your LMS data by using this application.</string>
     <string name="agree_accept">Agree</string>
     <string name="agree_cancel">Cancel</string>
 

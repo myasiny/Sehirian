@@ -8,8 +8,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.PorterDuff;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AlertDialog;
@@ -83,6 +85,18 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(rdirect);
             }
         });
+
+        if (Build.VERSION.SDK_INT < 23) {
+            Drawable mail_fixed = getApplicationContext().getResources().getDrawable(R.drawable.icon_mail);
+            mail_fixed.setBounds(0, 0, 30, 30);
+            mail.setCompoundDrawables(mail_fixed, null, null, null);
+            Drawable pass_fixed = getApplicationContext().getResources().getDrawable(R.drawable.icon_pasw);
+            pass_fixed.setBounds(0, 0, 30, 30);
+            pass.setCompoundDrawables(pass_fixed, null, null, null);
+            Drawable forgot_fixed = getApplicationContext().getResources().getDrawable(R.drawable.icon_reset);
+            forgot_fixed.setBounds(0, 0, 35, 35);
+            forgot.setCompoundDrawables(null, null, forgot_fixed, null);
+        }
 
         login = (Button) findViewById(R.id.login);
         login.setOnClickListener(new View.OnClickListener() {

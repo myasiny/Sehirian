@@ -19,8 +19,11 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 public class GradeActivity extends AppCompatActivity {
+    private AdView mAdView;
     ImageButton back;
     String usermail, userpass;
 
@@ -28,6 +31,10 @@ public class GradeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grade);
+
+        mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().addTestDevice("E5BDC074A0A9B6C1B1EB67A1B076A50B").build();
+        mAdView.loadAd(adRequest);
 
         Intent intent = getIntent();
         usermail = intent.getExtras().getString("usermail");

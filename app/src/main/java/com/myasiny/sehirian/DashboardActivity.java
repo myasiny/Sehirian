@@ -2,8 +2,10 @@ package com.myasiny.sehirian;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -115,6 +117,26 @@ public class DashboardActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        if (Build.VERSION.SDK_INT < 23) {
+            Drawable go_fixed = getApplicationContext().getResources().getDrawable(R.drawable.icon_go);
+            go_fixed.setBounds(0, 0, 65, 65);
+            Drawable events_fixed = getApplicationContext().getResources().getDrawable(R.drawable.icon_events);
+            events_fixed.setBounds(0, 0, 65, 65);
+            events.setCompoundDrawables(events_fixed, null, go_fixed, null);
+            Drawable inbox_fixed = getApplicationContext().getResources().getDrawable(R.drawable.icon_inbox);
+            inbox_fixed.setBounds(0, 0, 65, 65);
+            inbox.setCompoundDrawables(inbox_fixed, null, go_fixed, null);
+            Drawable grades_fixed = getApplicationContext().getResources().getDrawable(R.drawable.icon_grades);
+            grades_fixed.setBounds(0, 0, 65, 65);
+            grades.setCompoundDrawables(grades_fixed, null, go_fixed, null);
+            Drawable files_fixed = getApplicationContext().getResources().getDrawable(R.drawable.icon_files);
+            files_fixed.setBounds(0, 0, 65, 65);
+            files.setCompoundDrawables(files_fixed, null, go_fixed, null);
+            Drawable gpa_fixed = getApplicationContext().getResources().getDrawable(R.drawable.icon_gpa);
+            gpa_fixed.setBounds(0, 0, 65, 65);
+            gpa.setCompoundDrawables(gpa_fixed, null, go_fixed, null);
+        }
 
         twit = (ImageButton) findViewById(R.id.twitter);
         twit.setOnClickListener(new View.OnClickListener() {

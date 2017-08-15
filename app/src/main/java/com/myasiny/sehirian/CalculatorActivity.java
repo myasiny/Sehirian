@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -22,11 +24,14 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 
 public class CalculatorActivity extends AppCompatActivity {
     private AdView mAdView;
+    private InterstitialAd mInterstitialAd;
     Button add, calculate;
     EditText gpa_completed, credit_completed;
     ImageButton back;
@@ -39,6 +44,15 @@ public class CalculatorActivity extends AppCompatActivity {
         mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().addTestDevice("E5BDC074A0A9B6C1B1EB67A1B076A50B").build();
         mAdView.loadAd(adRequest);
+
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-5486013930231502/3037879818");
+        mInterstitialAd.loadAd(new AdRequest.Builder().addTestDevice("E5BDC074A0A9B6C1B1EB67A1B076A50B").build());
+        mInterstitialAd.setAdListener(new AdListener(){
+            public void onAdLoaded(){
+                mInterstitialAd.show();
+            }
+        });
 
         Intent intent = getIntent();
 
@@ -54,6 +68,16 @@ public class CalculatorActivity extends AppCompatActivity {
         calculate = (Button) findViewById(R.id.calculate);
         gpa_completed = (EditText) findViewById(R.id.gpa_completed);
         credit_completed = (EditText) findViewById(R.id.credit_completed);
+
+        if (Build.VERSION.SDK_INT < 23) {
+            Drawable entry_fixed = getApplicationContext().getResources().getDrawable(R.drawable.icon_entry);
+            entry_fixed.setBounds(0, 0, 35, 35);
+            gpa_completed.setCompoundDrawables(entry_fixed, null, null, null);
+            credit_completed.setCompoundDrawables(entry_fixed, null, null, null);
+            Drawable add_fixed = getApplicationContext().getResources().getDrawable(R.drawable.icon_add);
+            add_fixed.setBounds(0, 0, 45, 45);
+            add.setCompoundDrawables(null, add_fixed, null, null);
+        }
 
         final int[] no = {1};
         final RelativeLayout layout = (RelativeLayout)findViewById(R.id.layout);
