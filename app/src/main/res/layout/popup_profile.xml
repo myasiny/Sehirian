@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <Button
+        android:id="@+id/button_profile"
+        android:text="@string/popup_profile"
+        android:textColor="@color/colorAccent"
+        android:background="@color/colorPrimaryAlmostDark"
+        android:layout_width="@dimen/dp_100"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/button_inbox"
+        android:text="@string/popup_inbox"
+        android:textColor="@color/colorAccent"
+        android:background="@color/colorPrimaryDark"
+        android:layout_width="@dimen/dp_100"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button_profile" />
+
+    <Button
+        android:id="@+id/button_events"
+        android:text="@string/popup_events"
+        android:textColor="@color/colorAccent"
+        android:background="@color/colorPrimaryAlmostDark"
+        android:layout_width="@dimen/dp_100"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button_inbox" />
+
+    <Button
+        android:id="@+id/button_grades"
+        android:text="@string/popup_grades"
+        android:textColor="@color/colorAccent"
+        android:background="@color/colorPrimaryDark"
+        android:layout_width="@dimen/dp_100"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button_events" />
+
+    <Button
+        android:id="@+id/button_files"
+        android:text="@string/popup_files"
+        android:textColor="@color/colorAccent"
+        android:background="@color/colorPrimaryAlmostDark"
+        android:layout_width="@dimen/dp_100"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button_grades" />
+</RelativeLayout>

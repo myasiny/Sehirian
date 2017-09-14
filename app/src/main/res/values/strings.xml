@@ -1,57 +1,62 @@
 <resources>
     <string name="app_name">Sehirian</string>
-    <string name="app_version">1.2</string>
-    <string name="app_creator">© M Yasin YILDIRIM</string>
+    <string name="app_developer">© M Yasin Y</string>
 
-    <string name="agree_title">Sehirian: Terms Of Use</string>
-    <string name="agree_body">Sehirian needs your Sehir Mail and password only for accessing and parsing your data in Istanbul Sehir University Learning Management System to bring it into your service. Apart from that; it does not use, store (unless you checked Remember Me) or share your information and LMS data at all.\n\nTherefore, Sehirian does not take any responsibility for misusing of the information provided.\n\nPlease confirm that you understand the terms stated above and hereby consent to the use of your information for accessing your LMS data by using this application.</string>
-    <string name="agree_accept">Agree</string>
-    <string name="agree_cancel">Cancel</string>
-
-    <string name="hint_mail">Sehir Mail</string>
-    <string name="hint_pass">Password</string>
-    <string name="hint_agree">By logging in, you agree to the use of the information provided for accessing your LMS data</string>
-    <string name="hint_credit_completed">Credits Earned</string>
-    <string name="hint_gpa_completed">Current GPA</string>
-    <string name="hint_repeat">If you re-took a course, predicted GPA might be mistaken</string>
-
-    <string name="href_forgot">Forgot My Password</string>
-    <string name="href_follow">For news and updates</string>
-
-    <string name="check_remember">Remember Me</string>
+    <string name="hint_mail">Sehir Id</string>
+    <string name="hint_pasw">Password</string>
+    <string name="hint_remember">Remember Me</string>
+    <string name="hint_reset">Forgot My Password</string>
+    <string name="hint_agree">By logging in, you agree to the use of your information</string>
+    <string name="hint_comp_gpa">Current GPA</string>
+    <string name="hint_comp_credit">Credits Earned</string>
+    <string name="hint_gpa">If you re-took a course, predicted GPA might be mistaken</string>
+    <string name="hint_course">Course</string>
+    <string name="hint_credit">Credits</string>
+    <string name="hint_predict">Predicted GPA is</string>
+    <string name="hint_warning">Please fill all fields!</string>
+    <string name="hint_error">Something Went Wrong…</string>
+    <string name="hint_average">Average</string>
+    <string name="hint_grade">Grade</string>
+    <string name="hint_letter">Letter</string>
+    <string name="hint_weight">Weight</string>
+    <string name="hint_post">Share a post with other Sehirians…</string>
+    <string name="hint_info">For further information:</string>
+    <string name="hint_default">…</string>
 
     <string name="button_login">LOG IN</string>
-    <string name="button_quit">QUIT</string>
-    <string name="button_events">UPCOMING EVENTS</string>
-    <string name="button_inbox">MESSAGES</string>
-    <string name="button_grades">GRADES</string>
-    <string name="button_files">SHARED FILES</string>
-    <string name="button_gpa">GPA CALCULATOR</string>
-    <string name="button_reply">REPLY</string>
-    <string name="button_add">ADD COURSE</string>
+    <string name="button_course">ADD COURSE</string>
     <string name="button_calculate">CALCULATE</string>
+    <string name="button_okay">Okay</string>
+    <string name="button_reply">REPLY VIA GMAIL</string>
+    <string name="button_share">SHARE</string>
 
-    <string name="popup_connecting">Connecting...</string>
-    <string name="popup_success">Successfully Logged In</string>
-    <string name="popup_logout">Successfully Logged Out</string>
-    <string name="popup_invalid">Invalid Information!</string>
-    <string name="popup_missing">Missing information!</string>
-    <string name="popup_error">Something Went Wrong</string>
-    <string name="popup_title">Sehirian: GPA Calculator</string>
-    <string name="popup_predict">Predicted GPA is</string>
-    <string name="popup_done">Okay</string>
-    <string name="popup_warning">Please fill all fields!</string>
-    <string name="popup_agree">Please accept the Terms of Use to log in!</string>
+    <string name="popup_gpa">GPA</string>
+    <string name="popup_help">HELP</string>
+    <string name="popup_logout">LOG OUT</string>
+    <string name="popup_profile">PROFILE</string>
+    <string name="popup_inbox">INBOX</string>
+    <string name="popup_events">EVENTS</string>
+    <string name="popup_grades">GRADES</string>
+    <string name="popup_files">FILES</string>
 
-    <string name="notf_forgot_title">Sehirian: Reset Password</string>
-    <string name="notf_forgot_title_2">Sehirian: Download File</string>
-    <string name="notf_forgot_body">You are being re-directed to LMS</string>
+    <string name="page_message">MESSAGE</string>
+    <string name="page_exams">DETAILS</string>
+    <string name="page_post">POST</string>
 
-    <string name="default_name">...</string>
-
-    <string name="pg_events">Events</string>
-    <string name="pg_inbox">Inbox</string>
-    <string name="pg_grades">Grades</string>
-    <string name="pg_files">Files</string>
-    <string name="pg_gpa">GPA</string>
+    <string name="array_prompt">Grade</string>
+    <string-array name="array_grades">
+        <item>A+</item>
+        <item>A</item>
+        <item>A-</item>
+        <item>B+</item>
+        <item>B</item>
+        <item>B-</item>
+        <item>C+</item>
+        <item>C</item>
+        <item>C-</item>
+        <item>D+</item>
+        <item>D</item>
+        <item>D-</item>
+        <item>F</item>
+    </string-array>
 </resources>

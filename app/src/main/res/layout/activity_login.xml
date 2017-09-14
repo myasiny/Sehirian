@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".LoginActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:background="@drawable/bg_shadow_pattern"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginRight="@dimen/dp_10">
+
+        <ProgressBar
+            android:id="@+id/login_wait"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/login_success"
+            android:src="@drawable/icon_success"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="@dimen/dp_50"
+            android:layout_alignParentRight="true"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/login_fail"
+            android:src="@drawable/icon_fail"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="@dimen/dp_50"
+            android:layout_alignParentRight="true"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/login_connection"
+            android:src="@drawable/icon_connection"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="@dimen/dp_50"
+            android:layout_alignParentRight="true"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/pic_logo"
+            android:src="@drawable/icon_logo"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:layout_width="@dimen/dp_100"
+            android:layout_height="@dimen/dp_100"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp_25" />
+
+        <TextView
+            android:id="@+id/txt_title"
+            android:text="@string/app_name"
+            android:textSize="@dimen/dp_50"
+            android:textColor="@color/colorAccent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pic_logo"
+            android:layout_centerHorizontal="true" />
+
+        <EditText
+            android:id="@+id/edit_mail"
+            android:hint="@string/hint_mail"
+            android:textColor="@color/colorPrimaryDark"
+            android:background="@android:drawable/edit_text"
+            android:inputType="textEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_title"
+            android:layout_marginTop="@dimen/dp_25"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10" />
+
+        <EditText
+            android:id="@+id/edit_pasw"
+            android:hint="@string/hint_pasw"
+            android:textColor="@color/colorPrimaryDark"
+            android:background="@android:drawable/edit_text"
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edit_mail"
+            android:layout_alignLeft="@+id/edit_mail"
+            android:layout_alignRight="@+id/edit_mail" />
+
+        <CheckBox
+            android:id="@+id/check_remember"
+            android:text="@string/hint_remember"
+            android:textSize="@dimen/dp_10"
+            android:textStyle="bold"
+            android:textColor="@color/colorAccent"
+            android:buttonTint="@color/colorAccent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edit_pasw"
+            android:layout_alignLeft="@+id/edit_mail"
+            android:layout_marginTop="@dimen/dp_10" />
+
+        <TextView
+            android:id="@+id/check_reset"
+            android:text="@string/hint_reset"
+            android:textSize="@dimen/dp_10"
+            android:textStyle="bold"
+            android:textColor="@color/colorAccent"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edit_pasw"
+            android:layout_alignRight="@+id/edit_mail"
+            android:layout_alignBottom="@+id/check_remember"
+            android:layout_marginTop="@dimen/dp_10" />
+
+        <Button
+            android:id="@+id/button_login"
+            android:text="@string/button_login"
+            android:textColor="@color/colorAccent"
+            android:background="@color/colorPrimaryDark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/check_remember"
+            android:layout_alignLeft="@+id/edit_mail"
+            android:layout_alignRight="@+id/edit_mail"
+            android:layout_marginTop="@dimen/dp_25" />
+
+        <TextView
+            android:id="@+id/txt_agree"
+            android:text="@string/hint_agree"
+            android:textSize="@dimen/dp_10"
+            android:textColor="@color/colorPrimaryDark"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/button_login"
+            android:layout_alignLeft="@+id/edit_mail"
+            android:layout_alignRight="@+id/edit_mail"
+            android:layout_marginTop="@dimen/dp_10" />
+
+        <TextView
+            android:id="@+id/txt_developer"
+            android:text="@string/app_developer"
+            android:textSize="@dimen/dp_5"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_agree"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp_5"
+            android:layout_marginBottom="@dimen/dp_25" />
+    </RelativeLayout>
+</ScrollView>

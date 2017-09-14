@@ -2,7 +2,7 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".GradeActivity"
+    tools:context=".DocsActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -40,7 +40,7 @@
 
             <TextView
                 android:id = "@+id/txt_page"
-                android:text = "@string/popup_grades"
+                android:text = "@string/popup_files"
                 android:textSize = "@dimen/dp_20"
                 android:textColor="@color/colorAccent"
                 android:layout_width = "wrap_content"
@@ -80,8 +80,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/layout"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp_10"
             android:layout_marginBottom="@dimen/dp_10"
             ads:adSize="BANNER"
-            ads:adUnitId="ca-app-pub-5486013930231502/6439776035" />
+            ads:adUnitId="ca-app-pub-5486013930231502/5496383545" />
     </RelativeLayout>
 </ScrollView>

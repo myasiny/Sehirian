@@ -1,9 +1,11 @@
 package com.myasiny.sehirian;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -14,47 +16,42 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 
 public class GradeActivity extends AppCompatActivity {
-    private AdView mAdView;
-    ImageButton back;
-    String usermail, userpass;
+    AdView mAdView;
+    ImageButton button_back;
+    SharedPreferences preference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grade);
 
-        mAdView = (AdView) findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().addTestDevice("E5BDC074A0A9B6C1B1EB67A1B076A50B").build();
-        mAdView.loadAd(adRequest);
-
-        Intent intent = getIntent();
-        usermail = intent.getExtras().getString("usermail");
-        userpass = intent.getExtras().getString("userpass");
-
-        back = (ImageButton) findViewById(R.id.back);
-        back.setOnClickListener(new View.OnClickListener() {
+        button_back = (ImageButton) findViewById(R.id.button_back);
+        button_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();
             }
         });
 
-        new ParseLMS().execute(usermail, userpass);
+        preference = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+
+        mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().addTestDevice("E5BDC074A0A9B6C1B1EB67A1B076A50B").build();
+        mAdView.loadAd(adRequest);
+
+        new ParseLMS().execute(preference.getString("usermail", ""), preference.getString("userpasw", ""));
     }
 
     private class ParseLMS extends AsyncTask<String,Integer,Document> {
-        final String url = "https://lms.sehir.edu.tr/login/index.php";
-        final String url2 = "https://lms.sehir.edu.tr/grade/report/overview/index.php";
-
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -64,11 +61,13 @@ public class GradeActivity extends AppCompatActivity {
         protected Document doInBackground(String... params) {
             Document doc = null;
             try {
-                Connection.Response res = Jsoup.connect(url)
+                Connection.Response res = Jsoup.connect("https://lms.sehir.edu.tr/login/index.php")
                         .data("username", params[0])
                         .data("password", params[1])
                         .method(Connection.Method.POST).followRedirects(true).execute();
-                res = Jsoup.connect(url2).cookies(res.cookies()).method(Connection.Method.GET).execute();
+                res = Jsoup.connect("https://lms.sehir.edu.tr/grade/report/overview/index.php")
+                        .cookies(res.cookies())
+                        .method(Connection.Method.GET).execute();
                 doc = res.parse();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -79,99 +78,121 @@ public class GradeActivity extends AppCompatActivity {
         @Override
         public void onPostExecute(Document result) {
             if (result != null) {
-                int no = 0;
-                RelativeLayout layout = (RelativeLayout)findViewById(R.id.layout);
+                RelativeLayout layout = (RelativeLayout) findViewById(R.id.layout);
+                View divider = (View) findViewById(R.id.divider_top);
+                View center = (View) findViewById(R.id.center);
+
+                int dp_5 = Math.round(getApplicationContext().getResources().getDimension(R.dimen.dp_5));
+                int dp_10 = Math.round(getApplicationContext().getResources().getDimension(R.dimen.dp_10));
+                int dp_20 = Math.round(getApplicationContext().getResources().getDimension(R.dimen.dp_20));
 
                 Elements grade = result.select("table[id=overview-grade]").select("tr[class~=^$]");
-                for (Element g: grade) {
-                    Elements lecture = g.select("td.cell.c0").select("a");
-                    TextView title = new TextView(getApplicationContext());
-                    title.setMaxLines(1);
-                    title.setId(no+100100100);
-                    title.setTextColor(Color.parseColor("#FDFDFD"));
-                    title.setBackgroundResource(R.drawable.title_event);
-                    title.setTypeface(Typeface.create("sans-serif-condensed", Typeface.NORMAL));
-                    RelativeLayout.LayoutParams p_title = new RelativeLayout.LayoutParams(
-                            RelativeLayout.LayoutParams.MATCH_PARENT,
-                            RelativeLayout.LayoutParams.MATCH_PARENT);
 
-                    TextView type = new TextView(getApplicationContext());
-                    type.setMaxLines(1);
-                    type.setTextSize(15);
-                    type.setId(no+200100100);
-                    type.setTextColor(Color.parseColor("#FDFDFD"));
-                    type.setGravity(Gravity.CENTER);
-                    type.setBackgroundResource(R.drawable.body_type);
-                    RelativeLayout.LayoutParams p_type = new RelativeLayout.LayoutParams(
-                            RelativeLayout.LayoutParams.WRAP_CONTENT,
+                int no = 0;
+                for (Element g: grade) {
+                    ImageView check_detail = new ImageView(getApplicationContext());
+                    check_detail.setId(100100100 + no);
+                    check_detail.setImageResource(R.drawable.icon_detail);
+                    check_detail.setScaleType(ImageView.ScaleType.FIT_CENTER);
+                    check_detail.setAdjustViewBounds(true);
+                    RelativeLayout.LayoutParams params_detail = new RelativeLayout.LayoutParams(dp_20, dp_20);
+
+                    TextView txt_course = new TextView(getApplicationContext());
+                    txt_course.setId(200100100 + no);
+                    txt_course.setText(g.select("td.cell.c0").select("a").text());
+                    txt_course.setTextSize(10);
+                    txt_course.setTypeface(null, Typeface.BOLD);
+                    txt_course.setTextColor(Color.parseColor("#FDFDFD"));
+                    txt_course.setBackgroundResource(R.drawable.bg_body_g_d);
+                    txt_course.setMaxLines(1);
+                    txt_course.setPadding(dp_5, 0, 0, 0);
+                    txt_course.setGravity(Gravity.CENTER_VERTICAL);
+                    RelativeLayout.LayoutParams params_course = new RelativeLayout.LayoutParams(
+                            RelativeLayout.LayoutParams.MATCH_PARENT,
+                            RelativeLayout.LayoutParams.MATCH_PARENT
+                    );
+
+                    TextView txt_avg = new TextView(getApplicationContext());
+                    txt_avg.setId(300100100 + no);
+                    txt_avg.setText(getString(R.string.hint_average));
+                    txt_avg.setTextSize(15);
+                    txt_avg.setTextColor(Color.parseColor("#005050"));
+                    txt_avg.setBackgroundResource(R.drawable.bg_body_w_d);
+                    txt_avg.setMaxLines(1);
+                    txt_avg.setPadding(dp_5, 0, 0, 0);
+                    txt_avg.setGravity(Gravity.CENTER);
+                    RelativeLayout.LayoutParams params_avg = new RelativeLayout.LayoutParams(
+                            RelativeLayout.LayoutParams.MATCH_PARENT,
                             RelativeLayout.LayoutParams.WRAP_CONTENT
                     );
 
-                    Elements average = g.select("td.cell.c1");
-                    TextView body = new TextView(getApplicationContext());
-                    body.setMaxLines(1);
-                    body.setTextSize(15);
-                    body.setId(no+300100100);
-                    body.setTextColor(Color.parseColor("#001B25"));
-                    body.setBackgroundResource(R.drawable.body_event);
-                    RelativeLayout.LayoutParams p_body = new RelativeLayout.LayoutParams(
+                    TextView txt_grade = new TextView(getApplicationContext());
+                    txt_grade.setId(400100100 + no);
+                    txt_grade.setText(g.select("td.cell.c1").text());
+                    txt_grade.setTextSize(15);
+                    txt_grade.setTextColor(Color.parseColor("#005050"));
+                    txt_grade.setBackgroundResource(R.drawable.bg_body_w_l);
+                    txt_grade.setMaxLines(1);
+                    txt_grade.setPadding(dp_5, 0, 0, 0);
+                    txt_grade.setGravity(Gravity.CENTER);
+                    RelativeLayout.LayoutParams params_grade = new RelativeLayout.LayoutParams(
                             RelativeLayout.LayoutParams.MATCH_PARENT,
-                            RelativeLayout.LayoutParams.MATCH_PARENT);
-
-                    ImageView check = new ImageView(getApplicationContext());
-                    check.setId(no+400100100);
-                    check.setBackground(null);
-                    check.setImageResource(R.drawable.icon_go);
-                    int size_param = Math.round(getResources().getDimension(R.dimen.size_param));
-                    RelativeLayout.LayoutParams p_button = new RelativeLayout.LayoutParams(size_param, size_param);
-                    p_button.addRule(RelativeLayout.BELOW, title.getId());
-                    p_button.addRule(RelativeLayout.ALIGN_RIGHT, body.getId());
-                    layout.addView(check, p_button);
+                            RelativeLayout.LayoutParams.WRAP_CONTENT
+                    );
 
                     if (no == 0) {
-                        p_title.setMargins(40,40,40,0);
-                        p_title.addRule(RelativeLayout.BELOW, back.getId());
+                        params_detail.addRule(RelativeLayout.BELOW, divider.getId());
+                        params_course.addRule(RelativeLayout.BELOW, divider.getId());
+                        params_detail.setMargins(0, dp_10, dp_10, 0);
+                        params_course.setMargins(dp_10, dp_10, 0, 0);
                     } else {
-                        p_title.setMargins(40,0,40,0);
-                        p_title.addRule(RelativeLayout.BELOW, body.getId()-1);
+                        params_detail.addRule(RelativeLayout.BELOW, txt_grade.getId() - 1);
+                        params_course.addRule(RelativeLayout.BELOW, txt_grade.getId() - 1);
+                        params_detail.setMargins(0, 0, dp_10, 0);
+                        params_course.setMargins(dp_10, 0, 0, 0);
                     }
-                    if (lecture.text().replace("(16-3)", "").length() > 50) {
-                        title.setText("\t" + lecture.text().replace("(16-3)", "").substring(0, 50) + "...");
-                    } else {
-                        title.setText("\t" + lecture.text().replace("(16-3)", ""));
-                    }
-                    layout.addView(title, p_title);
+                    params_detail.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, RelativeLayout.TRUE);
+                    layout.addView(check_detail, params_detail);
 
-                    p_type.setMargins(40,0,0,40);
-                    p_type.addRule(RelativeLayout.BELOW, title.getId());
-                    p_type.addRule(RelativeLayout.ALIGN_PARENT_LEFT, RelativeLayout.TRUE);
-                    type.setText("\tAverage:\t");
-                    layout.addView(type, p_type);
+                    params_course.addRule(RelativeLayout.LEFT_OF, check_detail.getId());
+                    params_course.addRule(RelativeLayout.ALIGN_BOTTOM, check_detail.getId());
+                    layout.addView(txt_course, params_course);
 
-                    p_body.setMargins(40,0,40,40);
-                    p_body.addRule(RelativeLayout.BELOW, title.getId());
-                    p_body.addRule(RelativeLayout.RIGHT_OF, type.getId());
-                    body.setText("\t" + average.text());
-                    layout.addView(body, p_body);
+                    params_avg.addRule(RelativeLayout.BELOW, txt_course.getId());
+                    params_avg.addRule(RelativeLayout.LEFT_OF, center.getId());
+                    params_avg.setMargins(dp_10, 0, 0, dp_10);
+                    layout.addView(txt_avg, params_avg);
 
-                    final String url2 = lecture.attr("href");
-                    final Intent intent = new Intent(GradeActivity.this, Grade2Activity.class);
-                    intent.putExtra("usermail", usermail);
-                    intent.putExtra("userpass", userpass);
-                    intent.putExtra("url2", url2);
-                    title.setOnClickListener(new View.OnClickListener() {
+                    params_grade.addRule(RelativeLayout.BELOW, txt_course.getId());
+                    params_grade.addRule(RelativeLayout.RIGHT_OF, center.getId());
+                    params_grade.setMargins(0, 0, dp_10, dp_10);
+                    layout.addView(txt_grade, params_grade);
+
+                    final Intent intent = new Intent(GradeActivity.this, ExamsActivity.class);
+                    intent.putExtra("toURL", g.select("td.cell.c0").select("a").attr("href"));
+
+                    check_detail.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             startActivity(intent);
                         }
                     });
-                    type.setOnClickListener(new View.OnClickListener() {
+
+                    txt_course.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             startActivity(intent);
                         }
                     });
-                    body.setOnClickListener(new View.OnClickListener() {
+
+                    txt_avg.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            startActivity(intent);
+                        }
+                    });
+
+                    txt_grade.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             startActivity(intent);
@@ -181,10 +202,10 @@ public class GradeActivity extends AppCompatActivity {
                     no += 1;
                 }
 
-                ProgressBar spinner = (ProgressBar) findViewById(R.id.spinner);
-                spinner.setVisibility(View.GONE);
+                ProgressBar progress = (ProgressBar) findViewById(R.id.progress);
+                progress.setVisibility(View.GONE);
             } else {
-                Toast.makeText(getApplicationContext(), R.string.popup_error, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), R.string.hint_error, Toast.LENGTH_LONG).show();
             }
         }
     }

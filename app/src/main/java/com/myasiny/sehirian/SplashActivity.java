@@ -11,19 +11,17 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 public class SplashActivity extends AppCompatActivity {
-    ImageView logo;
+    ImageView pic_logo;
     SharedPreferences preference;
-    SharedPreferences.Editor preference_edit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        logo = (ImageView) findViewById(R.id.logo);
-        Animation anim = AnimationUtils.loadAnimation(SplashActivity.this, R.anim.anim_fade);
-        anim.setDuration(750);
-        logo.startAnimation(anim);
+        Animation anim_fade = AnimationUtils.loadAnimation(SplashActivity.this, R.anim.anim_fade);
+        pic_logo = (ImageView) findViewById(R.id.pic_logo);
+        pic_logo.startAnimation(anim_fade);
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -31,13 +29,10 @@ public class SplashActivity extends AppCompatActivity {
                 Intent intent;
 
                 preference = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-                preference_edit = preference.edit();
-                if (preference.getAll().containsKey("userinmemory")) {
-                    intent = new Intent(SplashActivity.this, DashboardActivity.class);
-                    intent.putExtra("usermail", preference.getString("usermail", ""));
-                    intent.putExtra("userpass", preference.getString("userpass", ""));
+                if (preference.getAll().containsKey("isChecked")) {
+                    intent = new Intent(SplashActivity.this, TimelineActivity.class);
                 } else {
-                    intent = new Intent(SplashActivity.this, MainActivity.class);
+                    intent = new Intent(SplashActivity.this, LoginActivity.class);
                 }
                 startActivity(intent);
                 finish();

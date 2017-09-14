@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".GpaActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/layout"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/bg_headline"
+            android:src="@drawable/bg_headline"
+            android:scaleType="fitEnd"
+            android:adjustViewBounds="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@+id/center"
+            android:layout_alignBottom="@+id/divider_top" />
+
+        <ImageButton
+            android:id="@+id/button_back"
+            android:src="@drawable/icon_back"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:layout_width="@dimen/dp_25"
+            android:layout_height="@dimen/dp_25"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginLeft="@dimen/dp_10" />
+
+        <TextView
+            android:id = "@+id/txt_page"
+            android:text = "@string/popup_gpa"
+            android:textSize = "@dimen/dp_20"
+            android:textColor="@color/colorAccent"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:layout_alignBottom="@+id/button_back"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dp_10" />
+
+        <View
+            android:id="@+id/divider_top"
+            android:background="@color/colorPrimaryDark"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_5"
+            android:layout_below="@+id/button_back"
+            android:layout_marginTop="@dimen/dp_10" />
+
+        <View
+            android:id="@+id/center"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_centerHorizontal="true" />
+
+        <EditText
+            android:id = "@+id/edit_comp_gpa"
+            android:hint="@string/hint_comp_gpa"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="@color/colorPrimaryAlmostDark"
+            android:background="@android:drawable/edit_text"
+            android:inputType="numberDecimal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/divider_top"
+            android:layout_toLeftOf="@+id/center"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10" />
+
+        <EditText
+            android:id="@+id/edit_comp_credit"
+            android:hint="@string/hint_comp_credit"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="@color/colorPrimaryAlmostDark"
+            android:background="@android:drawable/edit_text"
+            android:inputType="number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/divider_top"
+            android:layout_toRightOf="@+id/center"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10" />
+
+        <TextView
+            android:id="@+id/txt_gpa"
+            android:text="@string/hint_gpa"
+            android:textSize="@dimen/dp_10"
+            android:textColor="@color/colorAccent"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edit_comp_gpa"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10" />
+
+        <Button
+            android:id="@+id/button_course"
+            android:text="@string/button_course"
+            android:textColor="@color/colorAccent"
+            android:background="@color/colorPrimaryAlmostDark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_gpa"
+            android:layout_toLeftOf="@+id/center"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10" />
+
+        <Button
+            android:id="@+id/button_calculate"
+            android:text="@string/button_calculate"
+            android:textColor="@color/colorAccent"
+            android:background="@color/colorPrimaryDark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_gpa"
+            android:layout_toRightOf="@+id/center"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10" />
+
+        <TextView
+            android:id="@+id/txt_course"
+            android:text="@string/hint_course"
+            android:textSize="@dimen/dp_10"
+            android:textStyle="bold"
+            android:textColor="@color/colorAccent"
+            android:background="@drawable/bg_body_g_d"
+            android:paddingLeft="@dimen/dp_5"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/button_course"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10" />
+
+        <EditText
+            android:id="@+id/edit_credit"
+            android:hint="@string/hint_credit"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="@color/colorPrimaryAlmostDark"
+            android:background="@android:drawable/edit_text"
+            android:inputType="number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_course"
+            android:layout_toRightOf="@+id/center"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10" />
+
+        <Spinner
+            android:id="@+id/check_grade"
+            android:prompt="@string/array_prompt"
+            android:entries="@array/array_grades"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_course"
+            android:layout_toLeftOf="@+id/center"
+            android:layout_alignBottom="@+id/edit_credit"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10" />
+
+        <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edit_credit"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginBottom="@dimen/dp_10"
+            ads:adSize="BANNER"
+            ads:adUnitId="ca-app-pub-5486013930231502/8142603506" />
+    </RelativeLayout>
+</ScrollView>

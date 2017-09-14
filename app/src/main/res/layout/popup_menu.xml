@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <Button
+        android:id="@+id/button_gpa"
+        android:text="@string/popup_gpa"
+        android:textColor="@color/colorAccent"
+        android:background="@color/colorPrimaryAlmostDark"
+        android:layout_width="@dimen/dp_100"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/button_help"
+        android:text="@string/popup_help"
+        android:textColor="@color/colorAccent"
+        android:background="@color/colorPrimaryDark"
+        android:layout_width="@dimen/dp_100"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button_gpa" />
+
+    <Button
+        android:id="@+id/button_logout"
+        android:text="@string/popup_logout"
+        android:textColor="@color/colorAccent"
+        android:background="@color/colorPrimaryAlmostDark"
+        android:layout_width="@dimen/dp_100"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button_help" />
+</RelativeLayout>
