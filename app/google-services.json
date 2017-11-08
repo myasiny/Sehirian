@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "870427307085",
+    "firebase_url": "https://sehirian-lms.firebaseio.com",
+    "project_id": "sehirian-lms",
+    "storage_bucket": "sehirian-lms.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:870427307085:android:f161866a57985e9a",
+        "android_client_info": {
+          "package_name": "com.myasiny.sehirian"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "870427307085-ih5riaqi0t6arq9jpfvttpj5ccggej9s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.myasiny.sehirian",
+            "certificate_hash": "574ce7dc25220b82ec844ac091fbc4e0462a31a3"
+          }
+        },
+        {
+          "client_id": "870427307085-fhhv07b8cttacl83eonj1thn1poiseg0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACzvurhZJCbBt8XjSC-TRGDRao7mrlBck"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "870427307085-fhhv07b8cttacl83eonj1thn1poiseg0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".LoginActivity"
+    android:background="@color/colorPrimary"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/check_menu"
+        android:src="@drawable/icon_menu"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        android:layout_width="@dimen/dp_25"
+        android:layout_height="@dimen/dp_25"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginLeft="@dimen/dp_10" />
+
+    <ImageView
+        android:id="@+id/pic_logo"
+        android:src="@drawable/icon_launcher_round"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        android:layout_width="@dimen/dp_25"
+        android:layout_height="@dimen/dp_25"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dp_10" />
+
+    <ImageView
+        android:id="@+id/check_profile"
+        android:src="@drawable/icon_profile"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        android:layout_width="@dimen/dp_25"
+        android:layout_height="@dimen/dp_25"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginRight="@dimen/dp_10" />
+
+    <View
+        android:id="@+id/divider_top"
+        android:background="@color/colorPrimaryDark"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_5"
+        android:layout_below="@+id/pic_logo"
+        android:layout_marginTop="@dimen/dp_10" />
+
+    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/divider_top"
+        android:layout_centerHorizontal="true"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="ca-app-pub-5486013930231502/3895488304" />
+
+    <ImageView
+        android:id="@+id/button_post"
+        android:src="@drawable/icon_post"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        android:layout_width="@dimen/dp_50"
+        android:layout_height="@dimen/dp_50"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/dp_25"
+        android:layout_marginBottom="@dimen/dp_25" />
+
+    <fragment
+        android:id="@+id/timeline"
+        android:name="layout.TimelineFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/adView" />
+</RelativeLayout>
