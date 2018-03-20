@@ -150,7 +150,7 @@ public class LoginActivity extends AppCompatActivity {
         public void onPostExecute(Document result) {
             if (result != null) {
                 String title = result.title();
-                if (title.equals("Dashboard")) {
+                if (title.equals("Dashboard") || title.equals("Kontrol paneli")) {
                     login_wait.setVisibility(View.GONE);
                     login_success.setVisibility(View.VISIBLE);
 

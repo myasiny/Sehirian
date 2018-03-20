@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">Sehirian</string>
-    <string name="app_developer">© M Yasin Y</string>
+    <string name="app_name" translatable="false">Sehirian</string>
+    <string name="app_developer" translatable="false">© M Yasin Y</string>
 
-    <string name="hint_mail">Sehir Id</string>
+    <string name="hint_mail" translatable="false">Sehir Id</string>
     <string name="hint_pasw">Password</string>
     <string name="hint_remember">Remember Me</string>
     <string name="hint_reset">Forgot My Password</string>
@@ -21,7 +21,7 @@
     <string name="hint_weight">Weight</string>
     <string name="hint_post">Share a post with other Sehirians…</string>
     <string name="hint_info">For further information:</string>
-    <string name="hint_default">…</string>
+    <string name="hint_default" translatable="false">…</string>
 
     <string name="button_login">LOG IN</string>
     <string name="button_course">ADD COURSE</string>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="array_prompt">Not</string>
+    <string name="button_calculate">HESAPLA</string>
+    <string name="button_course">DERS EKLE</string>
+    <string name="button_login">GİRİŞ YAP</string>
+    <string name="button_okay">Tamam</string>
+    <string name="button_reply">GMAIL İLE YANITLA</string>
+    <string name="button_share">PAYLAŞ</string>
+    <string name="hint_agree">Giriş yaparak bilgilerinizin kullanımını onaylıyorsunuz</string>
+    <string name="hint_average">Ortalama</string>
+    <string name="hint_comp_credit">Başarılmış Krediler</string>
+    <string name="hint_comp_gpa">Güncel GNO</string>
+    <string name="hint_course">Ders</string>
+    <string name="hint_credit">Kredi</string>
+    <string name="hint_error">Bir hata oluştu…</string>
+    <string name="hint_gpa">Ders tekrar ettiyseniz GNO tahmini yanılabilir</string>
+    <string name="hint_grade">Not</string>
+    <string name="hint_info">Daha fazla bilgi için:</string>
+    <string name="hint_letter">Harf</string>
+    <string name="hint_pasw">Şifre</string>
+    <string name="hint_post">Diğer Sehirianlarla bir gönderi paylaş…</string>
+    <string name="hint_predict">Tahmini GNO</string>
+    <string name="hint_remember">Beni Hatırla</string>
+    <string name="hint_reset">Şifremi Unuttum</string>
+    <string name="hint_warning">Bütün alanları doldurunuz!</string>
+    <string name="hint_weight">Etki</string>
+    <string name="page_exams">DETAYLAR</string>
+    <string name="page_message">MESAJ</string>
+    <string name="page_post">GÖNDERİ</string>
+    <string name="popup_events">ETKİNLİKLER</string>
+    <string name="popup_files">DOSYALAR</string>
+    <string name="popup_gpa">GNO</string>
+    <string name="popup_grades">NOTLAR</string>
+    <string name="popup_help">YARDIM</string>
+    <string name="popup_inbox">GELEN KUTUSU</string>
+    <string name="popup_logout">ÇIKIŞ</string>
+    <string name="popup_profile">PROFİL</string>
+    <string-array name="array_grades">
+        <item>A+</item>
+        <item>A</item>
+        <item>A-</item>
+        <item>B+</item>
+        <item>B</item>
+        <item>B-</item>
+        <item>C+</item>
+        <item>C</item>
+        <item>C-</item>
+        <item>D+</item>
+        <item>D</item>
+        <item>D-</item>
+        <item>F</item>
+    </string-array>
+</resources>
