@@ -19,10 +19,10 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
-import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.InterstitialAd;
+//import com.google.android.gms.ads.AdListener;
+//import com.google.android.gms.ads.InterstitialAd;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
@@ -32,7 +32,7 @@ public class GpaActivity extends AppCompatActivity {
     Drawable icon_entry;
     EditText edit_comp_gpa, edit_comp_credit, edit_credit;
     ImageButton button_back;
-    InterstitialAd ad_interstitial;
+//    InterstitialAd ad_interstitial;
     RelativeLayout layout;
     View center;
 
@@ -53,14 +53,14 @@ public class GpaActivity extends AppCompatActivity {
         AdRequest adRequest = new AdRequest.Builder().addTestDevice("E5BDC074A0A9B6C1B1EB67A1B076A50B").build();
         mAdView.loadAd(adRequest);
 
-        ad_interstitial = new InterstitialAd(this);
-        ad_interstitial.setAdUnitId("ca-app-pub-5486013930231502/5819817176");
-        ad_interstitial.loadAd(new AdRequest.Builder().addTestDevice("E5BDC074A0A9B6C1B1EB67A1B076A50B").build());
-        ad_interstitial.setAdListener(new AdListener(){
-            public void onAdLoaded(){
-                ad_interstitial.show();
-            }
-        });
+//        ad_interstitial = new InterstitialAd(this);
+//        ad_interstitial.setAdUnitId("ca-app-pub-5486013930231502/5819817176");
+//        ad_interstitial.loadAd(new AdRequest.Builder().addTestDevice("E5BDC074A0A9B6C1B1EB67A1B076A50B").build());
+//        ad_interstitial.setAdListener(new AdListener(){
+//            public void onAdLoaded(){
+//                ad_interstitial.show();
+//            }
+//        });
 
         final int dp_5 = Math.round(getApplicationContext().getResources().getDimension(R.dimen.dp_5));
         final int dp_10 = Math.round(getApplicationContext().getResources().getDimension(R.dimen.dp_10));

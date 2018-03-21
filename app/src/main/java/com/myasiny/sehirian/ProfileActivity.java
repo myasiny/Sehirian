@@ -3,6 +3,7 @@ package com.myasiny.sehirian;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -25,9 +26,11 @@ import com.squareup.picasso.Picasso;
 public class ProfileActivity extends AppCompatActivity {
     AdView mAdView;
     ImageButton button_back;
-    ImageView pic_profile;
+    ImageView pic_profile, pic_user_avatar;
     SharedPreferences preference;
-    TextView txt_name, txt_mail;
+    TextView txt_name, txt_mail, txt_user_shares;
+
+    int avatar_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +60,9 @@ public class ProfileActivity extends AppCompatActivity {
 
         txt_mail = (TextView) findViewById(R.id.txt_mail);
         txt_mail.setText(preference.getString("usermail", ""));
+
+        pic_user_avatar = (ImageView) findViewById(R.id.pic_user_avatar);
+        txt_user_shares = (TextView) findViewById(R.id.txt_user_shares);
 
         final RelativeLayout layout = (RelativeLayout) findViewById(R.id.layout);
 
@@ -141,53 +147,77 @@ public class ProfileActivity extends AppCompatActivity {
                     );
 
                     if (value_user.substring(0, 1).toUpperCase().equals("A")) {
-                        pic_avatar.setImageResource(R.drawable.avatar_a);
+                        avatar_id = R.drawable.avatar_a;
+                        pic_avatar.setImageResource(avatar_id);
                     } else if (value_user.substring(0, 1).toUpperCase().equals("B")) {
-                        pic_avatar.setImageResource(R.drawable.avatar_b);
+                        avatar_id = R.drawable.avatar_b;
+                        pic_avatar.setImageResource(avatar_id);
                     } else if (value_user.substring(0, 1).toUpperCase().equals("C")) {
-                        pic_avatar.setImageResource(R.drawable.avatar_c);
+                        avatar_id = R.drawable.avatar_c;
+                        pic_avatar.setImageResource(avatar_id);
                     } else if (value_user.substring(0, 1).toUpperCase().equals("D")) {
-                        pic_avatar.setImageResource(R.drawable.avatar_d);
+                        avatar_id = R.drawable.avatar_d;
+                        pic_avatar.setImageResource(avatar_id);
                     } else if (value_user.substring(0, 1).toUpperCase().equals("E")) {
-                        pic_avatar.setImageResource(R.drawable.avatar_e);
+                        avatar_id = R.drawable.avatar_e;
+                        pic_avatar.setImageResource(avatar_id);
                     } else if (value_user.substring(0, 1).toUpperCase().equals("F")) {
-                        pic_avatar.setImageResource(R.drawable.avatar_f);
+                        avatar_id = R.drawable.avatar_f;
+                        pic_avatar.setImageResource(avatar_id);
                     } else if (value_user.substring(0, 1).toUpperCase().equals("G")) {
-                        pic_avatar.setImageResource(R.drawable.avatar_g);
+                        avatar_id = R.drawable.avatar_g;
+                        pic_avatar.setImageResource(avatar_id);
                     } else if (value_user.substring(0, 1).toUpperCase().equals("H")) {
-                        pic_avatar.setImageResource(R.drawable.avatar_h);
+                        avatar_id = R.drawable.avatar_h;
+                        pic_avatar.setImageResource(avatar_id);
                     } else if (value_user.substring(0, 1).toUpperCase().equals("I")) {
-                        pic_avatar.setImageResource(R.drawable.avatar_i);
+                        avatar_id = R.drawable.avatar_i;
+                        pic_avatar.setImageResource(avatar_id);
                     } else if (value_user.substring(0, 1).toUpperCase().equals("J")) {
-                        pic_avatar.setImageResource(R.drawable.avatar_j);
+                        avatar_id = R.drawable.avatar_j;
+                        pic_avatar.setImageResource(avatar_id);
                     } else if (value_user.substring(0, 1).toUpperCase().equals("K")) {
-                        pic_avatar.setImageResource(R.drawable.avatar_k);
+                        avatar_id = R.drawable.avatar_k;
+                        pic_avatar.setImageResource(avatar_id);
                     } else if (value_user.substring(0, 1).toUpperCase().equals("L")) {
-                        pic_avatar.setImageResource(R.drawable.avatar_l);
+                        avatar_id = R.drawable.avatar_l;
+                        pic_avatar.setImageResource(avatar_id);
                     } else if (value_user.substring(0, 1).toUpperCase().equals("M")) {
-                        pic_avatar.setImageResource(R.drawable.avatar_m);
+                        avatar_id = R.drawable.avatar_m;
+                        pic_avatar.setImageResource(avatar_id);
                     } else if (value_user.substring(0, 1).toUpperCase().equals("N")) {
-                        pic_avatar.setImageResource(R.drawable.avatar_n);
+                        avatar_id = R.drawable.avatar_n;
+                        pic_avatar.setImageResource(avatar_id);
                     } else if (value_user.substring(0, 1).toUpperCase().equals("O")) {
-                        pic_avatar.setImageResource(R.drawable.avatar_o);
+                        avatar_id = R.drawable.avatar_o;
+                        pic_avatar.setImageResource(avatar_id);
                     } else if (value_user.substring(0, 1).toUpperCase().equals("P")) {
-                        pic_avatar.setImageResource(R.drawable.avatar_p);
+                        avatar_id = R.drawable.avatar_p;
+                        pic_avatar.setImageResource(avatar_id);
                     } else if (value_user.substring(0, 1).toUpperCase().equals("R")) {
-                        pic_avatar.setImageResource(R.drawable.avatar_r);
+                        avatar_id = R.drawable.avatar_r;
+                        pic_avatar.setImageResource(avatar_id);
                     } else if (value_user.substring(0, 1).toUpperCase().equals("S")) {
-                        pic_avatar.setImageResource(R.drawable.avatar_s);
+                        avatar_id = R.drawable.avatar_s;
+                        pic_avatar.setImageResource(avatar_id);
                     } else if (value_user.substring(0, 1).toUpperCase().equals("T")) {
-                        pic_avatar.setImageResource(R.drawable.avatar_t);
+                        avatar_id = R.drawable.avatar_t;
+                        pic_avatar.setImageResource(avatar_id);
                     } else if (value_user.substring(0, 1).toUpperCase().equals("U")) {
-                        pic_avatar.setImageResource(R.drawable.avatar_u);
+                        avatar_id = R.drawable.avatar_u;
+                        pic_avatar.setImageResource(avatar_id);
                     } else if (value_user.substring(0, 1).toUpperCase().equals("V")) {
-                        pic_avatar.setImageResource(R.drawable.avatar_v);
+                        avatar_id = R.drawable.avatar_v;
+                        pic_avatar.setImageResource(avatar_id);
                     } else if (value_user.substring(0, 1).toUpperCase().equals("Y")) {
-                        pic_avatar.setImageResource(R.drawable.avatar_y);
+                        avatar_id = R.drawable.avatar_y;
+                        pic_avatar.setImageResource(avatar_id);
                     } else if (value_user.substring(0, 1).toUpperCase().equals("Z")) {
-                        pic_avatar.setImageResource(R.drawable.avatar_z);
+                        avatar_id = R.drawable.avatar_z;
+                        pic_avatar.setImageResource(avatar_id);
                     } else {
-                        pic_avatar.setImageResource(R.drawable.avatar_x);
+                        avatar_id = R.drawable.avatar_x;
+                        pic_avatar.setImageResource(avatar_id);
                     }
 
                     if (no % 2 == 0) {
@@ -243,6 +273,9 @@ public class ProfileActivity extends AppCompatActivity {
 
                     no += 1;
                 }
+
+                pic_user_avatar.setImageResource(avatar_id);
+                txt_user_shares.setText(String.valueOf(no));
             }
 
             @Override

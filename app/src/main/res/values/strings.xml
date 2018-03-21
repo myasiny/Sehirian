@@ -44,7 +44,7 @@
     <string name="page_post">POST</string>
 
     <string name="array_prompt">Grade</string>
-    <string-array name="array_grades">
+    <string-array name="array_grades" translatable="false">
         <item>A+</item>
         <item>A</item>
         <item>A-</item>

@@ -36,19 +36,4 @@
     <string name="popup_inbox">GELEN KUTUSU</string>
     <string name="popup_logout">ÇIKIŞ</string>
     <string name="popup_profile">PROFİL</string>
-    <string-array name="array_grades">
-        <item>A+</item>
-        <item>A</item>
-        <item>A-</item>
-        <item>B+</item>
-        <item>B</item>
-        <item>B-</item>
-        <item>C+</item>
-        <item>C</item>
-        <item>C-</item>
-        <item>D+</item>
-        <item>D</item>
-        <item>D-</item>
-        <item>F</item>
-    </string-array>
 </resources>

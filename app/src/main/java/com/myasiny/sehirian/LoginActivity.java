@@ -16,9 +16,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
+//import com.google.android.gms.ads.AdListener;
+//import com.google.android.gms.ads.AdRequest;
+//import com.google.android.gms.ads.InterstitialAd;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
     Drawable icon_mail, icon_pasw, icon_reset;
     EditText edit_mail, edit_pasw;
     ImageView login_success, login_fail, login_connection;
-    InterstitialAd ad_interstitial;
+//    InterstitialAd ad_interstitial;
     ProgressBar login_wait;
     SharedPreferences.Editor preference;
     String usermail, userpasw;
@@ -40,14 +40,14 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        ad_interstitial = new InterstitialAd(this);
-        ad_interstitial.setAdUnitId("ca-app-pub-5486013930231502/3037879818");
-        ad_interstitial.loadAd(new AdRequest.Builder().addTestDevice("E5BDC074A0A9B6C1B1EB67A1B076A50B").build());
-        ad_interstitial.setAdListener(new AdListener(){
-            public void onAdLoaded(){
-                ad_interstitial.show();
-            }
-        });
+//        ad_interstitial = new InterstitialAd(this);
+//        ad_interstitial.setAdUnitId("ca-app-pub-5486013930231502/3037879818");
+//        ad_interstitial.loadAd(new AdRequest.Builder().addTestDevice("E5BDC074A0A9B6C1B1EB67A1B076A50B").build());
+//        ad_interstitial.setAdListener(new AdListener(){
+//            public void onAdLoaded(){
+//                ad_interstitial.show();
+//            }
+//        });
 
         txt_title = (TextView) findViewById(R.id.txt_title);
         txt_title.setTypeface(Typeface.createFromAsset(getAssets(), "Bestlovers.ttf"));
